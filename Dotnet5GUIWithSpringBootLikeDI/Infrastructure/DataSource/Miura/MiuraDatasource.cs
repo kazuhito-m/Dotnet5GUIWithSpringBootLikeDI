@@ -1,8 +1,10 @@
-﻿using Dotnet5GUIWithSpringBootLikeDI.Domain.Model.Miura;
+﻿using Dotnet5GUIWithSpringBootLikeDI.Domain.DI.Attr;
+using Dotnet5GUIWithSpringBootLikeDI.Domain.Model.Miura;
 
 namespace Dotnet5GUIWithSpringBootLikeDI.Infrastructure.DataSource.Miura
 {
-    class MiuraDatasource : IMiuraRepository
+    [Repository]
+    public class MiuraDatasource : IMiuraRepository
     {
         public TheMiura Get()
         {

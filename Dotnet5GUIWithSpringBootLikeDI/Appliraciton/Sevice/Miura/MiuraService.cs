@@ -1,7 +1,9 @@
-﻿using Dotnet5GUIWithSpringBootLikeDI.Domain.Model.Miura;
+﻿using Dotnet5GUIWithSpringBootLikeDI.Domain.DI.Attr;
+using Dotnet5GUIWithSpringBootLikeDI.Domain.Model.Miura;
 
 namespace Dotnet5GUIWithSpringBootLikeDI.Appliraciton.Sevice.Miura
 {
+    [Component]
     public class MiuraService
     {
         private readonly IMiuraRepository repository;

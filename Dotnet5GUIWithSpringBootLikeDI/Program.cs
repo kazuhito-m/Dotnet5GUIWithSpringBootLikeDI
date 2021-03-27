@@ -1,5 +1,6 @@
 using System;
 using Microsoft.Extensions.Hosting;
+using Dotnet5GUIWithSpringBootLikeDI.Domain.DI.Extension;
 
 namespace Dotnet5GUIWithSpringBootLikeDI
 {
@@ -12,6 +13,7 @@ namespace Dotnet5GUIWithSpringBootLikeDI
                 .UseWindowsFormsLifetime<Form1>()
                 .ConfigureServices((hostContext, services) =>
                 {
+                    services.AddAttributedClassOf(typeof(Program).Assembly);
                 });
     }
 }
