@@ -11,4 +11,8 @@
     <PackageReference Include="OswaldTechnologies.Extensions.Hosting.WindowsFormsLifetime" Version="0.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Domain\DI\Attribute\" />
+  </ItemGroup>
+
 </Project>
