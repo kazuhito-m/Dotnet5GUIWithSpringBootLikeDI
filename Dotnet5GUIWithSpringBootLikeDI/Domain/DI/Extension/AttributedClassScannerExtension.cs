@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using Dotnet5GUIWithSpringBootLikeDI.Domain.DI.Attr;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,6 +9,8 @@ namespace Dotnet5GUIWithSpringBootLikeDI.Domain.DI.Extension
 {
     public static class AttributedClassScannerExtension
     {
+        private static readonly string THIS_APP_TOP_NAMESPACE = Regex.Replace(typeof(AttributedClassScannerExtension).Namespace, "\\..*", "");
+
         public static void AddAttributedClassOf(this IServiceCollection services, Assembly scanTargetAssembly)
         {
             scanTargetAssembly.ExportedTypes
@@ -19,8 +22,14 @@ namespace Dotnet5GUIWithSpringBootLikeDI.Domain.DI.Extension
 
         private static void RegisterDI(Type type, IServiceCollection services)
         {
-            if (type.GetInterfaces().Any()) services.AddSingleton(type.GetInterfaces()[0], type);
-            else services.AddSingleton(type);
+            foreach (var ifc in type.GetInterfaces())
+            {
+                var ns = ifc.Namespace;
+                if (ns == null || !ns.StartsWith(THIS_APP_TOP_NAMESPACE)) continue;
+                services.AddSingleton(ifc, type);
+                return;
+            }
+            services.AddSingleton(type);
         }
     }
 }
