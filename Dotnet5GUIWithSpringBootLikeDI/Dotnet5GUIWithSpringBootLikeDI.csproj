@@ -11,10 +11,4 @@
     <PackageReference Include="OswaldTechnologies.Extensions.Hosting.WindowsFormsLifetime" Version="0.0.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Appliraciton\Sevice\Miura\" />
-    <Folder Include="Domain\Model\Miura\" />
-    <Folder Include="Infrastructure\DataSource\Miura\" />
-  </ItemGroup>
-
 </Project>
