@@ -1,6 +1,6 @@
 ﻿namespace Dotnet5GUIWithSpringBootLikeDI.Domain.Model.Miura
 {
-    class TheMiura
+    public class TheMiura
     {
         public string GivenName { get; private set; }
         public string FamilyName { get; private set; }

@@ -2,7 +2,7 @@
 
 namespace Dotnet5GUIWithSpringBootLikeDI.Appliraciton.Sevice.Miura
 {
-    class MiuraService
+    public class MiuraService
     {
         private readonly IMiuraRepository repository;
 

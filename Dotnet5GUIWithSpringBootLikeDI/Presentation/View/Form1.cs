@@ -8,9 +8,10 @@ namespace Dotnet5GUIWithSpringBootLikeDI
     {
         private readonly MiuraService service;
 
-        public Form1()
+        public Form1(MiuraService service)
         {
             InitializeComponent();
+            this.service = service;
         }
 
         private void Form1_Load(object sender, EventArgs e)
